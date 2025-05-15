@@ -1,0 +1,10 @@
+<input type="text" #nome> Nome
+<br>
+<input type="text" #post>Post  
+<br>
+<button (click)="addPost(nome.value, post.value)">Invia</button>
+
+<!-- Per ogni casella -->
+@for(post of vettPost; track post){
+  <app-post [post] = "post"></app-post>
+}
