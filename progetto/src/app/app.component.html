@@ -1,10 +1,28 @@
-<input type="text" #nome> Nome
+<div class="header-logo-titolo">
+  <h1 class="titolo-faisbuc">
+    <img src="assets/faisbuc.png" alt="F" class="logo-in-testo">
+    aisbuc
+  </h1>
+</div>
+
+<input type="text" #nome placeholder="Nome"> 
 <br>
-<input type="text" #post>Post  
-<br>
+<input type="text" #post placeholder="Post">   
+<br><br>
 <button (click)="addPost(nome.value, post.value)">Invia</button>
 
-<!-- Per ogni casella -->
-@for(post of vettPost; track post){
-  <app-post [post] = "post"></app-post>
+<!-- Elenco dei post -->
+@for (post of vettPost; track post) {
+  <app-post [post]="post"></app-post>
 }
+
+<br><br>
+
+<input type="text" #commento placeholder="Commento">  
+<br>
+<button (click)="addCommento(commento.value)">Commenta</button>
+
+@for (c of vettCommento; track c) {
+  <p>{{ c.comment }}</p>
+}
+
